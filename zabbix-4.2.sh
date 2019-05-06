@@ -56,9 +56,8 @@ sed -i "s/^# DBPassword=/DBPassword=admin123/g" /etc/zabbix/zabbix_server.conf
 sed -i "20iphp_value date.timezone Asia/Shanghai" /etc/httpd/conf.d/zabbix.conf
 #
 #修改字体 
-sed -i "s/graphfont/kaiti/g" /usr/share/zabbix/include/defines.inc.php
-cp /root/STKAITI.TTF /usr/share/zabbix/fonts/
-#
+wget https://raw.githubusercontent.com/linzhuangrong/zabbix/master/simhei.ttf -O /usr/share/zabbix/fonts/simhei.ttf
+sed -i "s/graphfont/simhei/g" /usr/share/zabbix/include/defines.inc.php
 #开启zabbix 服务
 systemctl start zabbix-server.service && systemctl enable zabbix-server.service 
 systemctl start zabbix-agent.service && systemctl enable zabbix-agent.service 
